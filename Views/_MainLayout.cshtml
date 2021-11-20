@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/modules/animations-extended.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/addons/datatables-select.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/addons/datatables.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/mdb.css" rel="stylesheet" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</head>
+
+<body class="central">
+    <nav class="navbar navbar-dark primary-color-dark sticky-top box-shadow">
+        <div class="navbar-brand">
+            @Html.ActionLink("Home", "Index")
+            @Html.ActionLink("Contact", "Contact")
+            @Html.ActionLink("About", "About")
+            @Html.ActionLink("Dodaj oglas", "Dodaj")
+        </div>
+
+        <h1 class="text-lg-center mdb-color-ic">Auto Oglasi</h1>
+
+        @Html.Partial("/Views/_LoginPartial.cshtml")
+
+    </nav>
+    <br />
+
+    <div class="container">
+
+        <div class="col-md-12">
+            @RenderBody()
+        </div>
+        @if (IsSectionDefined("Scripts"))
+        {
+            @RenderSection("Scripts", required: false)
+        }
+        <div class="col-md-2">
+            @RenderSection("SideBar", false)
+        </div>
+
+    </div><br />
+
+
+    <footer class="card-footer footer text-center default-color">
+        @Html.ActionLink("Home", "Index")
+        @Html.ActionLink("Contact", "Contact")
+        @Html.ActionLink("About", "About")
+    </footer>
+</body>
+</html>
+
+
+

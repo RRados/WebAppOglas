@@ -1,0 +1,75 @@
+﻿
+@model WebAppOglas.Models.Automobil
+
+@{
+    ViewBag.Title = "Dodaj";
+}
+
+
+<div class="card-header info-color shadow-lg white-text text-center col-md-8">
+    <h3>Dodaj oglas</h3>
+</div>
+
+<div class="card shadow-lg central col-md-8 flex-center central">
+
+    <div class="col-md-8">
+
+        @using (Html.BeginForm("Dodaj", "Home", FormMethod.Post, new { @class = "form-group", enctype = "multipart/form-data" }))
+        {
+            <br />
+            <div class="card-group">
+                @Html.ValidationMessageFor(m => m.Marka, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Marka, null, new { @class = "form-control form-control-sm", placeholder = "Marka automobila" })
+            </div>
+            <br />
+            <div class="card-group">
+                @Html.ValidationMessageFor(m => m.Godiste, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Godiste, null, new { @class = "form-control form-control-sm", placeholder = "Godiste" })
+            </div>
+            <br />
+            <div class="card-group">
+                <p></p>
+                @Html.ValidationMessageFor(m => m.ZapreminaMotora, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.ZapreminaMotora, null, new { @class = "form-control form-control-sm", placeholder = "Zapremina motora" })
+            </div>
+            <br />
+            <div class="card-group">
+                @Html.ValidationMessageFor(m => m.Snaga, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Snaga, null, new { @class = "form-control form-control-sm", placeholder = "Snaga" })
+            </div>
+            <br />
+            <div class="card-group">
+                @Html.ValidationMessageFor(m => m.Gorivo, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Gorivo, null, new { @class = "form-control form-control-sm", placeholder = "Gorivo" })
+            </div>
+            <br />
+            <div class="card-group">
+                @Html.ValidationMessageFor(m => m.Karoserija, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Karoserija, null, new { @class = "form-control form-control-sm", placeholder = "Karoserija" })
+            </div>
+            <br />
+            <div class="card-group">
+                @Html.ValidationMessageFor(m => m.Opis, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Opis, null, new { @class = "form-control form-control-sm", placeholder = "Opis" })
+            </div>
+            <br />
+            <div class="card-group">
+                @Html.ValidationMessageFor(m => m.Cena, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Cena, null, new { @class = "form-control form-control-sm", placeholder = "Cena" })
+            </div>
+            <br />
+            <div class="card-group">
+                @Html.ValidationMessageFor(m => m.Kontakt, null, new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Kontakt, null, new { @class = "form-control form-control-sm", placeholder = "Kontakt" })
+            </div>
+            <br />
+
+            <div class="card-group form-control-sm">
+                <input asp-for="Fotografija" type="file" name="fotografija" />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-sm btn-primary">Save</button>
+            <br />
+        }
+    </div>
+</div>

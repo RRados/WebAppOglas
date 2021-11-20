@@ -1,0 +1,25 @@
+﻿
+
+
+    @model WebAppOglas.Models.Automobil
+
+    @{
+        ViewBag.Title = "Home";
+    }
+
+    @{
+        if (TempData["auto"] != null)
+        {
+            <p class="alert alert-success col-md-8 flex-center central text-lg-center">Oglas uspesno dodat!</p>
+        }
+        else if (TempData["obrisanAuto"] != null)
+        {
+            <p class="alert alert-success col-md-8 flex-center central text-lg-center">Oglas uspesno obrisan</p>
+        }
+        else if (TempData["izmenjenAuto"] != null)
+        {
+            <p class="alert alert-success col-md-8 flex-center central text-lg-center">Oglas uspesno izmenjen</p>
+        }
+    }
+
+    @Html.Partial("~/Views/Shared/_ListaOglasa.cshtml")

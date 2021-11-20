@@ -1,0 +1,35 @@
+﻿
+
+
+@model IEnumerable<Automobil>
+
+@using WebAppOglas.Models
+
+
+<div class="row">
+
+    @foreach (Automobil auto in Oglas.UzmiOglas())
+    {
+        <div class="card-deck card m-2" style="display:inline-block;">
+
+            <div class="card-header info-color shadow-lg">
+                @auto.Marka @auto.Godiste
+            </div>
+
+            <div class="img-thumbnail">
+
+                @if (Oglas.UzmiOglas().Count == 0)
+                {
+                    <p>Trenutno nema oglasa!</p>
+                }
+                else
+                {
+                    <a rel="alternate" href="../Home/Detalji/@auto.Id" target="_self">
+                        <img src="~/img/@auto.Fotografija" alt="image" height="300" width="300" />
+                    </a>
+                }
+
+            </div>
+        </div>
+    }
+</div>
