@@ -36,7 +36,6 @@ namespace WebAppOglas
                     .AddDefaultTokenProviders()
                     .AddEntityFrameworkStores<WebAppOglasContext>();
 
-
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddMvc();
