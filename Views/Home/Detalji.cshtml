@@ -1,29 +1,27 @@
 ﻿
+@model WebAppOglas.Models.Automobil
+
+@using WebAppOglas.Models
+
+@{
+    ViewBag.Title = "Detalji";
+}
 
 
-    @model WebAppOglas.Models.Automobil
+@if (TempData["auto"] != null)
+{
+    <p class="alert alert-success col-md-8">Oglas uspesno dodat! </p>
+}
 
-    @using WebAppOglas.Models
+<div class="card-header info-color shadow col-md-8 flex-center">
+    <h3> @Html.DisplayFor(p => p.Marka) </h3>
+</div>
 
-    @{
-        ViewBag.Title = "Detalji";
-    }
-
-
-    @if (TempData["auto"] != null)
-     {
-        <p class="alert alert-success col-md-8">Oglas uspesno dodat! </p>
-     }
-
-    <div class="card-header info-color shadow col-md-8 flex-center">
-       <h3> @Html.DisplayFor(p => p.Marka) </h3>
-    </div>
-
-  <div class="card shadow-lg col-md-8">
+<div class="card shadow-lg col-md-8">
 
 
     @using (Html.BeginForm("Detalji", "Home", FormMethod.Post, new { @class = "form-group" }))
-     {
+    {
         <table class="table table-condensed">
             <tr>
                 <td class="text-left teal-text">
@@ -37,7 +35,7 @@
                     Br. Tel:    <br />
                     Cena:       <br />
                 </td>
-                  
+
                 <td class="text-left">
                     @Html.DisplayFor(p => p.Marka)<br />
                     @Html.DisplayFor(p => p.Godiste)<br />
@@ -57,19 +55,19 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-               @if (User.Identity.IsAuthenticated)
+                @if (User.Identity.IsAuthenticated)
                 {
-                  @if (!User.IsInRole("admin"))
-                  {
-                     <a class="btn btn-default btn-sm" href="../Izmeni/@Html.DisplayFor(p => p.Id)">Edit</a>
-                  }
+                    @if (!User.IsInRole("admin"))
+                    {
+                        <a class="btn btn-default btn-sm" href="../Izmeni/@Html.DisplayFor(p => p.Id)">Edit</a>
+                    }
 
-                  @if (User.IsInRole("admin"))
-                 {
-                   <a class="btn btn-default btn-red btn-sm" href="../Obrisi/@Html.DisplayFor(p => p.Id)">Delete</a>
-                   }
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a class="btn btn-default btn-red btn-sm" href="../Obrisi/@Html.DisplayFor(p => p.Id)">Delete</a>
+                    }
                 }
             </div>
         </div>
-     }
-  </div>
+    }
+</div>
