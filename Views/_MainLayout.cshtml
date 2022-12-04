@@ -22,8 +22,8 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 </head>
 
-<body class="central">
-    <nav class="navbar navbar-dark primary-color-dark sticky-top box-shadow">
+<body class="justify-content-center">
+    <nav class="navbar navbar-dark mdb-color sticky-top box-shadow">
         <div class="navbar-brand">
             @Html.ActionLink("Home", "Index")
             @Html.ActionLink("Contact", "Contact")
@@ -40,7 +40,7 @@
 
     <div class="container">
 
-        <div class="col-md-10">
+        <div class="">
             @RenderBody()
         </div>
         @if (IsSectionDefined("Scripts"))
@@ -54,7 +54,7 @@
     </div><br />
 
 
-    <footer class="card-footer footer text-center default-color">
+    <footer class="text-center mdb-color bottom">
         @Html.ActionLink("Home", "Index")
         @Html.ActionLink("Contact", "Contact")
         @Html.ActionLink("About", "About")

@@ -10,8 +10,8 @@ using WebAppOglas.Models;
 namespace WebAppOglas.Migrations
 {
     [DbContext(typeof(MvcOglasContext))]
-    [Migration("20211120153254_AutoOglas")]
-    partial class AutoOglas
+    [Migration("20221204174620_initOglas")]
+    partial class initOglas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
