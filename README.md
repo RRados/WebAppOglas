@@ -1,5 +1,5 @@
 # Web Auto oglas
 
-Kreirana
+## Asp.Net Core WebApp
 
 

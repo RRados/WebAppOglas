@@ -5,7 +5,7 @@
     <ApplicationIcon />
     <Win32Resource />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <UserSecretsId>4a37867d-0bcd-486a-80a3-78fc5f4f6a1d</UserSecretsId>
+    <!--<UserSecretsId>4a37867d-0bcd-486a-80a3-78fc5f4f6a1d</UserSecretsId>-->
   </PropertyGroup>
 
   <ItemGroup>
