@@ -30,11 +30,15 @@ namespace WebAppOglas
             services.AddDbContext<WebAppOglasContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
 
+            
+
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddRoleManager<RoleManager<IdentityRole>>()
                     .AddDefaultUI()
                     .AddDefaultTokenProviders()
                     .AddEntityFrameworkStores<WebAppOglasContext>();
+
+            //services.AddCoreAdmin();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

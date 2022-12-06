@@ -31,7 +31,7 @@
         "ASPNETCORE_URLS": "http://localhost:5000",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "distributionName": ""
+      "distributionName": "Debian"
     }
   }
 }
