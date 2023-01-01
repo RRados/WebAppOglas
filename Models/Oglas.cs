@@ -5,6 +5,7 @@ namespace WebAppOglas.Models
 {
     public class Oglas
     {
+
         public static void DodajOglas(Automobil automobil)
         {
             MvcOglasContext oglasContext = new MvcOglasContext();
@@ -14,12 +15,16 @@ namespace WebAppOglas.Models
             oglasContext.SaveChanges();
         }
 
+
+
         public static List<Automobil> UzmiOglas()
         {
             MvcOglasContext dbContext = new MvcOglasContext();
 
             return dbContext.Automobil.ToList();
         }
+
+
 
         public static void Obrisi(Automobil automobil)
         {
@@ -29,6 +34,8 @@ namespace WebAppOglas.Models
 
             oglasContext.SaveChanges();
         }
+
+
 
         public static void Izmeni(Automobil automobil)
         {

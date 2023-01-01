@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -11,7 +12,7 @@ using WebAppOglas.Models;
 
 namespace WebAppOglas.Controllers
 {
-    //[Route("api/[Controler]")]
+    //[Route("Home/[Controller]")]
     //[ApiController]
     public class HomeController : Controller
     {
@@ -24,9 +25,9 @@ namespace WebAppOglas.Controllers
 
         #region Stranice
 
-        public IActionResult Index() { return View(); }
+        public IActionResult Index()   { return View(); }
         public IActionResult Contact() { return View(); }
-        public IActionResult About() { return View(); }
+        public IActionResult About()   { return View(); }
 
         [Authorize]
         [HttpGet]
@@ -37,6 +38,7 @@ namespace WebAppOglas.Controllers
 
 
         #region ViewModel stranice
+
         [HttpPost]
         public ActionResult Dodaj(Automobil automobil)
         {
@@ -81,13 +83,14 @@ namespace WebAppOglas.Controllers
                                    automobil.Cena +
                                    automobil.Kontakt;
 
-                return RedirectToAction("Detalji", new { id = automobil.Id });
+                return RedirectToAction("Dodaj", new { id = automobil.Id });
             }
             else
             {
                 return View();
             }
         }
+
 
         [HttpGet]
         public IActionResult Detalji(int id)
@@ -104,6 +107,8 @@ namespace WebAppOglas.Controllers
             return View(automobil);
         }
 
+
+        
         [Authorize(Roles = "admin")]
         [HttpGet]
         public IActionResult Obrisi(int id)
@@ -122,7 +127,7 @@ namespace WebAppOglas.Controllers
             }
         }
 
-
+     
         [HttpPost]
         public IActionResult Obrisi(Automobil automobil)
         {
@@ -156,16 +161,7 @@ namespace WebAppOglas.Controllers
 
                 Oglas.Obrisi(automobil);
 
-                TempData["obrisanAuto"] = automobil.Marka +
-                                          automobil.Godiste +
-                                          automobil.ZapreminaMotora +
-                                          automobil.Snaga +
-                                          automobil.Gorivo +
-                                          automobil.Karoserija +
-                                          automobil.Fotografija +
-                                          automobil.Opis +
-                                          automobil.Cena +
-                                          automobil.Kontakt;
+                TempData["obrisanAuto"] = JsonConvert.SerializeObject(automobil);
 
                 return RedirectToAction("Index");
             }
@@ -192,6 +188,7 @@ namespace WebAppOglas.Controllers
                 return View();
             }
         }
+
 
         [HttpPost]
         public IActionResult Izmeni(Automobil automobil)
@@ -245,6 +242,7 @@ namespace WebAppOglas.Controllers
         }
 
         #endregion
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

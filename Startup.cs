@@ -14,23 +14,26 @@ namespace WebAppOglas
 {
     public class Startup
     {
+
+        public static string ConnectionString;
+
+        public IConfiguration Configuration { get; }
+
+
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
             ConnectionString = Configuration["ConnectionString"];
         }
 
-        public static string ConnectionString;
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<WebAppOglasContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
-
-            
+            services.AddDbContext<WebAppOglasContext>(options => options
+                    .UseSqlServer(Configuration.GetConnectionString("ConnectionString")));                       
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddRoleManager<RoleManager<IdentityRole>>()
@@ -38,12 +41,13 @@ namespace WebAppOglas
                     .AddDefaultTokenProviders()
                     .AddEntityFrameworkStores<WebAppOglasContext>();
 
-            //services.AddCoreAdmin();
-
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
         }
+
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -54,22 +58,27 @@ namespace WebAppOglas
             }
             else
             {
-                app.UseExceptionHandler("Home/Error");
+                app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+
             //app.UseHttpsRedirection();
+
             app.UseStaticFiles();
+            
+            app.UseAuthentication();
 
             app.UseRouting();
 
-            app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
 
                 endpoints.MapControllerRoute(
+
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                );
