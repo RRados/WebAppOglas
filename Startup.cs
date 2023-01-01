@@ -33,7 +33,9 @@ namespace WebAppOglas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WebAppOglasContext>(options => options
-                    .UseSqlServer(Configuration.GetConnectionString("ConnectionString")));                       
+                    .UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+
+           
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddRoleManager<RoleManager<IdentityRole>>()
@@ -52,6 +54,8 @@ namespace WebAppOglas
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
