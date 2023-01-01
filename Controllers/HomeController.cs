@@ -23,7 +23,6 @@ namespace WebAppOglas.Controllers
             _hostEnv = hostEnv;
         }
 
-        #region Stranice
 
         public IActionResult Index()   { return View(); }
         public IActionResult Contact() { return View(); }
@@ -33,12 +32,7 @@ namespace WebAppOglas.Controllers
         [HttpGet]
         public IActionResult Dodaj() { return View(); }
 
-        #endregion
-
-
-
-        #region ViewModel stranice
-
+ 
         [HttpPost]
         public ActionResult Dodaj(Automobil automobil)
         {
@@ -127,6 +121,7 @@ namespace WebAppOglas.Controllers
             }
         }
 
+
      
         [HttpPost]
         public IActionResult Obrisi(Automobil automobil)
@@ -172,6 +167,7 @@ namespace WebAppOglas.Controllers
         }
 
 
+
         [HttpGet]
         public IActionResult Izmeni(int id)
         {
@@ -188,6 +184,7 @@ namespace WebAppOglas.Controllers
                 return View();
             }
         }
+
 
 
         [HttpPost]
@@ -241,7 +238,6 @@ namespace WebAppOglas.Controllers
             }
         }
 
-        #endregion
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
