@@ -79,7 +79,7 @@ namespace WebAppOglas.Controllers
                                    automobil.Cena +
                                    automobil.Kontakt;
 
-                return RedirectToAction("Dodaj", new { id = automobil.Id });
+                return RedirectToAction("Index", new { id = automobil.Id });
             }
             else
             {
@@ -249,3 +249,15 @@ namespace WebAppOglas.Controllers
         }
     }
 }
+
+
+/*
+ * user
+ * userName: rale@rale.rs 
+ * password: radosR1!
+ * 
+ * admin
+ * userName: admin@admin.rs
+ * password: Kradisevic12!
+ * 
+ */

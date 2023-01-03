@@ -5,15 +5,16 @@
 
 
 <ul class="nav form-inline float-right">
+
     @if (SignInManager.IsSignedIn(User))
      {
         <li class="nav-item">
-            <a class="nav-link text-dark" id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User) </a>
+            <a class="nav-link text-primary" id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User) </a>
         </li>
   
-        <li class="nav-item">
-            <form class="form-inline" id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button id="logout" type="submit" class="nav-link btn btn-link text-dark" style="width:auto">Logout</button>
+        <li class="nav-item text-primary">              
+            <form class="form-sm text-primary" id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="btn-sm btn btn-outline text-primary">Logout</button>
             </form>
         </li>
         
@@ -21,10 +22,10 @@
      else
      {
         <li class="nav-item">
-            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="nav-link text-primary" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link text-primary" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
      }
 </ul>

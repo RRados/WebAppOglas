@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewBag.Title</title>
 
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
@@ -22,43 +22,51 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 </head>
 
-<body class="justify-content-center">                  
-    <nav class="navbar navbar-dark mdb-color sticky-top box-shadow">
-            <div class="navbar-brand font-small p-2">
+<body>
+    <nav class="navbar bg-dark shadow-lg sticky-top">
+        <div class="text-muted font-weight-normal light-blue-text">
+
+            <div class="container">
                 @Html.ActionLink("Home", "Index")
                 @Html.ActionLink("Contact", "Contact")
                 @Html.ActionLink("About", "About")
                 @Html.ActionLink("Dodaj oglas", "Dodaj")
             </div>
 
-        <h1 class="text-lg-center mdb-color-ic">Auto Oglasi</h1>
+        </div>
+        <h2 class="text-md-center mdb-color-ic">Auto Oglasi</h2>
 
         @Html.Partial("/Views/_LoginPartial.cshtml")
 
     </nav>
     <br />
+                                         
 
-    <div class="container">
+    <div class="container col-md-10 offset-md-2">
+        @RenderBody()
+    </div>
 
-        <div class="">
-            @RenderBody()
-        </div>
-        @if (IsSectionDefined("Scripts"))
-        {
-            @RenderSection("Scripts", required: false)
-        }
-        <div class="col-md-2">
-            @RenderSection("SideBar", false)
-        </div>
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts", required: false)
+    }
 
-    </div><br />
+    <div class="col-md-5">
+        @RenderSection("SideBar", false)
+    </div>
+    <br />
 
 
-    <footer class="text-center mdb-color bottom">
-        @Html.ActionLink("Home", "Index")
-        @Html.ActionLink("Contact", "Contact")
-        @Html.ActionLink("About", "About")
+    <footer class="footer border-top bottom text-muted text-center">            
+            @Html.ActionLink("Home", "Index")
+            @Html.ActionLink("Contact", "Contact")
+            @Html.ActionLink("About", "About")            
     </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
 </body>
 </html>
 

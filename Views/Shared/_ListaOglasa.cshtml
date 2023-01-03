@@ -6,11 +6,11 @@
 @using WebAppOglas.Models
 
 
-<div class="row">
+<div class="container" >
 
     @foreach (Automobil auto in Oglas.UzmiOglas())
     {
-        <div class="card-deck card m-2" style="display:inline-block;">
+        <div class="card-deck card m-2"style="display:inline-block;" >
 
             <div class="card-header info-color shadow-lg">
                 @auto.Marka @auto.Godiste

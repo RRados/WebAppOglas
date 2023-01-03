@@ -10,64 +10,65 @@
 
 @if (TempData["auto"] != null)
 {
-    <p class="alert alert-success col-md-8">Oglas uspesno dodat! </p>
+    <p class="alert alert-success col-md-10">Oglas uspesno dodat! </p>
 }
 
-<div class="card-header info-color shadow col-md-8 flex-center">
-    <h3> @Html.DisplayFor(p => p.Marka) </h3>
-</div>
 
-<div class="card shadow-lg col-md-8">
+    <div class="card card-body shadow-lg">
+
+        <h3 class="card-header bg-primary"> @Html.DisplayFor(p => p.Marka) </h3>
 
 
-    @using (Html.BeginForm("Detalji", "Home", FormMethod.Post, new { @class = "form-group" }))
-    {
-        <table class="table table-condensed">
-            <tr>
-                <td class="text-left teal-text">
-                    Marka:      <br />
-                    Godiste:    <br />
-                    Kubikaza:   <br />
-                    Snaga:      <br />
-                    Gorivo:     <br />
-                    Karoserija: <br />
-                    Opis:       <br />
-                    Br. Tel:    <br />
-                    Cena:       <br />
-                </td>
+        @using (Html.BeginForm("Detalji", "Home", FormMethod.Post, new { @class = "form-group" }))
+        {
+             <br />
+            <table class="table table-condensed">
+                <tr>
+                    <td class="text-left teal-text font-weight-bold">
+                        Marka:      <br />   
+                        Godiste:    <br />   
+                        Kubikaza:   <br />   
+                        Snaga:      <br />   
+                        Gorivo:     <br />   
+                        Karoserija: <br />   
+                        Opis:       <br />   
+                        Br. Tel:    <br />   
+                        Cena:       <br />   
+                    </td>
 
-                <td class="text-left">
-                    @Html.DisplayFor(p => p.Marka)<br />
-                    @Html.DisplayFor(p => p.Godiste)<br />
-                    @Html.DisplayFor(p => p.ZapreminaMotora)<br />
-                    @Html.DisplayFor(p => p.Snaga)<br />
-                    @Html.DisplayFor(p => p.Gorivo)<br />
-                    @Html.DisplayFor(p => p.Karoserija)<br />
-                    @Html.DisplayFor(p => p.Opis)<br />
-                    @Html.DisplayFor(p => p.Kontakt)<br />
-                    @Html.DisplayFor(p => p.Cena)<br />
-                </td>
-                <td>
-                    <img src="~/img/@Html.DisplayFor(p => p.Fotografija)" height="280" width="280" alt="image" />
-                </td>
-            </tr>
-        </table>
+                    <td class="text-left font-weight-bold">
+                        @Html.DisplayFor(p => p.Marka)<br />
+                        @Html.DisplayFor(p => p.Godiste)<br />
+                        @Html.DisplayFor(p => p.ZapreminaMotora)<br />
+                        @Html.DisplayFor(p => p.Snaga)<br />
+                        @Html.DisplayFor(p => p.Gorivo)<br />
+                        @Html.DisplayFor(p => p.Karoserija)<br />
+                        @Html.DisplayFor(p => p.Opis)<br />
+                        @Html.DisplayFor(p => p.Kontakt)<br />
+                        @Html.DisplayFor(p => p.Cena)<br />
+                    </td>
+                    <td>
+                        <img src="~/img/@Html.DisplayFor(p => p.Fotografija)" class="img-fluid rounded-start" alt="image" />
+                    </td>
+                </tr>
+            </table>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @if (!User.IsInRole("admin"))
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-10">
+                    @if (User.Identity.IsAuthenticated)
                     {
-                        <a class="btn btn-default btn-sm" href="../Izmeni/@Html.DisplayFor(p => p.Id)">Edit</a>
-                    }
+                        @if (!User.IsInRole("admin"))
+                        {
+                            <a class="btn btn-default btn-sm" href="../Izmeni/@Html.DisplayFor(p => p.Id)">Edit</a>
+                        }
 
-                    @if (User.IsInRole("admin"))
-                    {
-                        <a class="btn btn-default btn-red btn-sm" href="../Obrisi/@Html.DisplayFor(p => p.Id)">Delete</a>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <a class="btn btn-default btn-red btn-sm" href="../Obrisi/@Html.DisplayFor(p => p.Id)">Delete</a>
+                        }
                     }
-                }
+                </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
