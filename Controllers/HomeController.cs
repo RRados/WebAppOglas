@@ -25,16 +25,16 @@ namespace WebAppOglas.Controllers
         }
 
 
-        public IActionResult Index()   { return View(); }
+        public IActionResult Index() { return View(); }
         public IActionResult Contact() { return View(); }
-        public IActionResult About()   { return View(); }
+        public IActionResult About() { return View(); }
 
 
         [Authorize]
         [HttpGet]
         public IActionResult Dodaj() { return View(); }
 
- 
+
         [HttpPost]
         public ActionResult Dodaj(Automobil automobil)
         {
@@ -104,7 +104,7 @@ namespace WebAppOglas.Controllers
         }
 
 
-        
+
         [Authorize(Roles = "admin")]
         [HttpGet]
         public IActionResult Obrisi(int id)
@@ -124,7 +124,7 @@ namespace WebAppOglas.Controllers
         }
 
 
-     
+
         [HttpPost]
         public IActionResult Obrisi(Automobil automobil)
         {
