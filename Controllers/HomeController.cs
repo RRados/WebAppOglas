@@ -16,6 +16,7 @@ namespace WebAppOglas.Controllers
     //[ApiController]
     public class HomeController : Controller
     {
+
         private IWebHostEnvironment _hostEnv;
 
         public HomeController(IWebHostEnvironment hostEnv, ILogger<HomeController> logger)
@@ -27,6 +28,7 @@ namespace WebAppOglas.Controllers
         public IActionResult Index()   { return View(); }
         public IActionResult Contact() { return View(); }
         public IActionResult About()   { return View(); }
+
 
         [Authorize]
         [HttpGet]
