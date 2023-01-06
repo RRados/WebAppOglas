@@ -48,14 +48,14 @@
                         @Html.DisplayFor(p => p.Cena)<br />
                     </td>
                     <td>
-                        <img src="~/img/@Html.DisplayFor(p => p.Fotografija)" class="img-fluid rounded-start" alt="image" />
+                        <img src="~/img/@Html.DisplayFor(p => p.Fotografija)" class="img rounded" alt="image" />
                     </td>
                 </tr>
             </table>
 
             <div class="form-group">
 
-                <div class="col-md-offset-2 col-md-10">
+                <div class="col-md-2 col-md-10">
                     @if (User.Identity.IsAuthenticated)
                     {
                         @if (!User.IsInRole("admin"))
