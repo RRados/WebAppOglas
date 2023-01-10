@@ -17,7 +17,6 @@ namespace WebAppOglas.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer("Server=DESKTOP\\SQLSERVER;Database=AutoOglas;Integrated Security=True;");
-                
             }
         }
 
