@@ -13,7 +13,7 @@
 
         @using (Html.BeginForm("Dodaj", "Home", FormMethod.Post, new { @class = "form-group", enctype = "multipart/form-data" }))
         {
-        <hr />
+            <hr />
             <div class="card-group">
                 @Html.TextBoxFor(m => m.Marka, null, new { @class = "form-control form-control-sm", placeholder = "Marka automobila" })
                 @Html.ValidationMessageFor(m => m.Marka, null, new { @class = "text-danger" })

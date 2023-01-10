@@ -219,6 +219,7 @@ namespace WebAppOglas.Controllers
                         }
                     }
                 }
+        
                 Oglas.Izmeni(automobil);
 
                 TempData["izmenjenAuto"] = automobil.Marka +
