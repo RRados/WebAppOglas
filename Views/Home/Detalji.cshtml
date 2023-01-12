@@ -14,15 +14,15 @@
 }
 
 
-    <div class="card card-body shadow-lg">
+    <div class="card shadow-lg">
 
-        <h3 class="card-header bg-primary"> @Html.DisplayFor(p => p.Marka) </h3>
+        <h3 class="card-header bg-primary text-light font-weight-bold"> @Html.DisplayFor(p => p.Marka) </h3>
 
 
         @using (Html.BeginForm("Detalji", "Home", FormMethod.Post, new { @class = "form-group" }))
         {
              <br />
-            <table class="table table-condensed">
+            <table class="table table-borderless">
                 <tr>
                     <td class="text-left teal-text font-weight-bold">
                         Marka:      <br />   

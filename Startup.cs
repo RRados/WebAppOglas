@@ -88,6 +88,8 @@ namespace WebAppOglas
                );
                 endpoints.MapRazorPages();
             });
+
+            app.UseCookiePolicy();
         }
     }
 }
