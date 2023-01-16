@@ -1,14 +1,11 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebAppOglas.Data;
-using WebAppOglas.Models;
 
 namespace WebAppOglas
 {
@@ -35,7 +32,7 @@ namespace WebAppOglas
             services.AddDbContext<WebAppOglasContext>(options => options
                     .UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
 
-           
+
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddRoleManager<RoleManager<IdentityRole>>()
@@ -46,6 +43,7 @@ namespace WebAppOglas
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
+            services.AddApplicationInsightsTelemetry();
         }
 
 
@@ -54,7 +52,7 @@ namespace WebAppOglas
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            
+
 
             if (env.IsDevelopment())
             {
@@ -62,14 +60,14 @@ namespace WebAppOglas
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
 
             //app.UseHttpsRedirection();
 
             app.UseStaticFiles();
-            
+
             app.UseAuthentication();
 
             app.UseRouting();

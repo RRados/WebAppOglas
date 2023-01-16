@@ -5,64 +5,42 @@
     var roles = (List<IdentityRole>)ViewData["roles"];
 }
 
-<h1 class="justify-content-center card-header info-color col-md-8 offset-md-3">@ViewData["Title"]</h1>
 
-<div class="justify-content-center card-header shadow-lg col-md-8 offset-md-3 flex-center">
 
-    <div class="justify-content-center col-md-8 offset-md-1">
+<div class="row shadow-lg rounded-lg" style="background-color: #1f2937"  >
+
+    <h1 class="card-header text-light">@ViewData["Title"]</h1>
+
+    <div class="container">   
 
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            @*<h4>Create a new account.</h4>*@
             <hr />
-            @*<div asp-validation-summary="All" class="text-danger"></div>*@
-            <div class="form-group"> 
+
+            <div class="form-group text-light">
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group text-light">
                 <label asp-for="Input.Password"></label>
                 <input asp-for="Input.Password" class="form-control" />
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group text-light">
                 <label asp-for="Input.ConfirmPassword"></label>
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-
-            <button type="submit" class="btn btn-sm btn-primary">Register</button>
-        </form>
+            <br />
+            <div class="form-group text-light">
+                <button type="submit" class="btn btn-primary btn">REGISTER</button>
+            </div>
+            <br />
+            <br />
+        </form>         
     </div>
-    @*<div class="col-md-6 col-md-offset-2">
-        <section>
-
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>*@
 </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
